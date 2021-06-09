@@ -6,6 +6,23 @@ from cidade import Cidade
 class Mapa:
     cidades: List[CidadeMapa] = []
 
+    def busca_profunda(partida: CidadeMapa, chegada: CidadeMapa) -> List[CidadeMapa]:
+        return [partida, chegada]
+
+    def busca_largura(partida: CidadeMapa, chegada: CidadeMapa) -> List[CidadeMapa]:
+        return [partida, chegada]
+
+    def busca_a_estrela(partida: CidadeMapa, chegada: CidadeMapa) -> List[CidadeMapa]:
+        return [partida, chegada]
+
+    def busca_gulosa(partida: CidadeMapa, chegada: CidadeMapa) -> List[CidadeMapa]:
+        return [partida, chegada]
+
+    def busca_custo_uniforme(
+        partida: CidadeMapa, chegada: CidadeMapa
+    ) -> List[CidadeMapa]:
+        return [partida, chegada]
+
     def cria_mapa(self) -> List[CidadeMapa]:
         arad = Cidade("Arad")
         bucharest = Cidade("Bucharest")
@@ -52,3 +69,7 @@ class Mapa:
         self.cidades.append(CidadeMapa(zerind, [oradea, arad]))
 
         return self.cidades
+
+    def _limpa_busca(self):
+        for cidade in self.cidades:
+            cidade.cidade.visitado = False
