@@ -4,8 +4,21 @@ from cidade import Cidade
 
 class CidadeMapa:
     cidade: Cidade
-    cidades_adjascentes: List[Cidade]
 
-    def __init__(self, cidade: Cidade, cidades_adjascentes: List[Cidade]) -> None:
+    def __init__(self, cidade: Cidade) -> None:
         self.cidade = cidade
-        self.cidades_adjascentes = cidades_adjascentes
+
+    class Cidade:
+        nome: str
+        visitado: bool
+        cidades_adjascentes: List[CidadeMapa]
+
+        def __init__(
+            self,
+            nome: str,
+            cidades_adjascentes: List[CidadeMapa],
+            visitado: bool = False,
+        ) -> None:
+            self.nome = nome
+            self.visitado = visitado
+            self.cidades_adjascentes = cidades_adjascentes
