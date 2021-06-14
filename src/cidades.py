@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class Cidades(Enum):
+class Cidades(str, Enum):
     arad = "Arad"
     bucharest = "Bucharest"
     craiova = "Craiova"
