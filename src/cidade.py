@@ -14,6 +14,15 @@ class Cidade:
         self.adjascentes = adjascentes
         self.visitado = visitado
 
+    def visitar(self):
+        self.visitado = True
+
+    def foi_visitado(self) -> bool:
+        return self.visitado
+
+    def reiniciar_visitado(self):
+        self.visitado = False
+
 
 class Adjascente:
     def __init__(self, cidade_destino: Cidade, custo_do_caminho: int):

@@ -1,5 +1,5 @@
 from typing import List
-from src.cidade import Cidade, Adjascente
+from cidade import Cidade, Adjascente
 
 
 class Mapa:
@@ -32,16 +32,17 @@ class Mapa:
         self._cria_mapa()
 
     def busca_profunda(self, partida: Cidade, chegada: Cidade):
-        partida.visitado = True
+        partida.visitar()
+
         self.pilha.append(partida)
 
         if partida.nome == chegada.nome:
             return self.pilha
         else:
-            for cidade in partida.adjascentes:
-                if not cidade.visitado:
-                    print("Busca: " + cidade.nome)
-                    resultado = self.busca_profunda(cidade, chegada)
+            for adjascente in partida.adjascentes:
+                if not adjascente.cidade_destino.foi_visitado():
+                    print("Busca: " + adjascente.cidade_destino.nome)
+                    resultado = self.busca_profunda(adjascente.cidade_destino, chegada)
                     if resultado:
                         return self.pilha
                     self.pilha.pop()
@@ -58,6 +59,9 @@ class Mapa:
 
     def busca_custo_uniforme(self, partida: str, chegada: str) -> List[str]:
         return [partida, chegada]
+
+    def get_mapa(self):
+        return self.cidades
 
     def _limpa_busca(self):
         for cidade in self.cidades:
