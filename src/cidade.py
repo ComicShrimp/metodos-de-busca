@@ -2,10 +2,6 @@ from typing import List
 
 
 class Cidade:
-    nome: str
-    visitado: bool
-    adjascentes: List = []
-
     def __init__(
         self,
         nome: str,
@@ -15,3 +11,8 @@ class Cidade:
         self.nome = nome
         self.adjascentes = adjascentes
         self.visitado = visitado
+
+
+class adjascente:
+    cidade_destino: Cidade
+    custo__do_caminho: int

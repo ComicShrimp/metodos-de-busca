@@ -1,5 +1,5 @@
 from typing import List
-from cidade import Cidade
+from src.cidade import Cidade, adjascente
 
 
 class Mapa:
@@ -25,7 +25,7 @@ class Mapa:
     zerind = Cidade("Zerind")
 
     cidades: List[Cidade] = []
-    pilha: List[str] = []
+    pilha: List[Cidade] = []
 
     def __init__(self) -> None:
         self._cria_cidades_adjacentes()
