@@ -48,16 +48,36 @@ class Mapa:
                     self.pilha.pop()
         return False
 
-    def busca_largura(self, partida: str, chegada: str) -> List[str]:
+    def busca_largura(self, partida: Cidade, chegada: Cidade):
         return [partida, chegada]
 
-    def busca_a_estrela(self, partida: str, chegada: str) -> List[str]:
+    def busca_a_estrela(self, partida: Cidade, chegada: Cidade):
         return [partida, chegada]
 
-    def busca_gulosa(self, partida: str, chegada: str) -> List[str]:
-        return [partida, chegada]
+    def busca_gulosa(self, partida: Cidade, chegada: Cidade):
+        partida.visitar()
 
-    def busca_custo_uniforme(self, partida: str, chegada: str) -> List[str]:
+        self.pilha.append(partida)
+
+        if partida.nome == chegada.nome:
+            return self.pilha
+        else:
+            if partida.adjascentes[0].cidade_destino.foi_visitado():
+                cidade_a_visitar = partida.adjascentes[1]
+            else:
+                cidade_a_visitar = partida.adjascentes[0]
+
+            for adjascente in partida.adjascentes:
+                if not adjascente.cidade_destino.foi_visitado():
+                    custo = adjascente.custo_do_caminho
+                    custo_a_visitar = cidade_a_visitar.custo_do_caminho
+                    if custo < custo_a_visitar:
+                        cidade_a_visitar = adjascente
+
+            print("Busca: " + cidade_a_visitar.cidade_destino.nome)
+            return self.busca_gulosa(cidade_a_visitar.cidade_destino, chegada)
+
+    def busca_custo_uniforme(self, partida: Cidade, chegada: Cidade):
         return [partida, chegada]
 
     def get_mapa(self):
@@ -65,7 +85,9 @@ class Mapa:
 
     def _limpa_busca(self):
         for cidade in self.cidades:
-            cidade.cidade.visitado = False
+            cidade.reiniciar_visitado()
+
+        self.pilha = []
 
     def _cria_cidades_adjacentes(self):
         self.arad.adjascentes = [
