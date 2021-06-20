@@ -23,6 +23,12 @@ class Cidade:
     def reiniciar_visitado(self):
         self.visitado = False
 
+    def __str__(self) -> str:
+        return self.nome
+
+    def __repr__(self) -> str:
+        return self.nome
+
 
 class Adjascente:
     def __init__(self, cidade_destino: Cidade, custo_do_caminho: int):
