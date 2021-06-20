@@ -1,8 +1,7 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
-from typing import Union
 
-from metodos_de_busca.cidade import Cidade
+from metodos_de_busca.sociedade import Cidade
 
 from .resultado import ResultadoBusca
 

@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import List, Optional
 
-from metodos_de_busca.cidade import Cidade
+from metodos_de_busca.sociedade import Cidade
 
 
 @dataclass

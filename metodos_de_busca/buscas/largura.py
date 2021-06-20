@@ -1,6 +1,6 @@
-from typing import List, Union
+from typing import List
 
-from metodos_de_busca.cidade import Cidade
+from metodos_de_busca.sociedade import Cidade
 
 from .busca import IBusca, BuscaInputDto
 from .resultado import ResultadoBusca

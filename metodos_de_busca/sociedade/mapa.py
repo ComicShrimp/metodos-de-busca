@@ -1,5 +1,5 @@
 from typing import List
-from metodos_de_busca.cidade import Cidade, Adjascente
+from metodos_de_busca.sociedade.cidade import Cidade, Adjascente
 
 
 class Mapa:

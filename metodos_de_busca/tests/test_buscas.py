@@ -1,5 +1,10 @@
-from metodos_de_busca.buscas import BuscaInputDto, BuscaProfunda, BuscaGulosa
-from metodos_de_busca.mapa import Mapa
+from metodos_de_busca.buscas import (
+    BuscaAEstrela,
+    BuscaGulosa,
+    BuscaInputDto,
+    BuscaProfunda,
+)
+from metodos_de_busca.sociedade import Mapa
 
 
 def test_busca_profunda(snapshot):
