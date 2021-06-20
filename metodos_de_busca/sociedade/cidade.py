@@ -6,12 +6,12 @@ class Cidade:
         self,
         nome: str,
         custo: int,
-        adjascentes: List = [],
+        vizinhos: List = [],
         visitado: bool = False,
     ) -> None:
         self.nome = nome
         self.custo = custo
-        self.adjascentes = adjascentes
+        self.vizinhos = vizinhos
         self.visitado = visitado
 
     def visitar(self):
@@ -30,7 +30,7 @@ class Cidade:
         return self.nome
 
 
-class Adjascente:
+class Vizinho:
     def __init__(self, cidade_destino: Cidade, custo_do_caminho: int):
         self.cidade_destino = cidade_destino
         self.custo_do_caminho = custo_do_caminho

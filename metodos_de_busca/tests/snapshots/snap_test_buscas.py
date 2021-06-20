@@ -2,10 +2,13 @@
 # snapshottest: v1 - https://goo.gl/zC4yUc
 from __future__ import unicode_literals
 
-from snapshottest import GenericRepr, Snapshot
+from snapshottest import Snapshot
 
 
 snapshots = Snapshot()
+
+snapshots['test_busca_a_estrela busca_a_estrela'] = [
+]
 
 snapshots['test_busca_gulosa busca_gulosa'] = [
     'Cidade: Arad, Custo: 366',

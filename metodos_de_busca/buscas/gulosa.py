@@ -17,17 +17,17 @@ class BuscaGulosa(IBusca):
         if input_dto.partida.nome == input_dto.chegada.nome:
             return ResultadoBusca(self.arvore_de_busca)
         else:
-            if input_dto.partida.adjascentes[0].cidade_destino.foi_visitado():
-                cidade_a_visitar = input_dto.partida.adjascentes[1]
+            if input_dto.partida.vizinhos[0].cidade_destino.foi_visitado():
+                cidade_a_visitar = input_dto.partida.vizinhos[1]
             else:
-                cidade_a_visitar = input_dto.partida.adjascentes[0]
+                cidade_a_visitar = input_dto.partida.vizinhos[0]
 
-            for adjascente in input_dto.partida.adjascentes:
-                if not adjascente.cidade_destino.foi_visitado():
-                    custo = adjascente.custo_do_caminho
+            for vizinho in input_dto.partida.vizinhos:
+                if not vizinho.cidade_destino.foi_visitado():
+                    custo = vizinho.custo_do_caminho
                     custo_a_visitar = cidade_a_visitar.custo_do_caminho
                     if custo < custo_a_visitar:
-                        cidade_a_visitar = adjascente
+                        cidade_a_visitar = vizinho
 
             print("Busca: " + cidade_a_visitar.cidade_destino.nome)
             return self.executa(

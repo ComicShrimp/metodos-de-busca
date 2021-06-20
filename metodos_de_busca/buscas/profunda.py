@@ -17,12 +17,12 @@ class BuscaProfunda(IBusca):
         if input_dto.partida.nome == input_dto.chegada.nome:
             return ResultadoBusca(self.arvore_de_busca)
         else:
-            for adjascente in input_dto.partida.adjascentes:
-                if not adjascente.cidade_destino.foi_visitado():
-                    print("Busca: " + adjascente.cidade_destino.nome)
+            for vizinho in input_dto.partida.vizinhos:
+                if not vizinho.cidade_destino.foi_visitado():
+                    print("Busca: " + vizinho.cidade_destino.nome)
                     resultado = self.executa(
                         BuscaInputDto(
-                            partida=adjascente.cidade_destino,
+                            partida=vizinho.cidade_destino,
                             chegada=input_dto.chegada,
                         )
                     )

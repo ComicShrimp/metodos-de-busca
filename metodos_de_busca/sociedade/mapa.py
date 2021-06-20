@@ -1,5 +1,5 @@
 from typing import List
-from metodos_de_busca.sociedade.cidade import Cidade, Adjascente
+from metodos_de_busca.sociedade.cidade import Cidade, Vizinho
 
 
 class Mapa:
@@ -50,84 +50,84 @@ class Mapa:
         self.pilha = []
 
     def _cria_cidades_adjacentes(self):
-        self.arad.adjascentes = [
-            Adjascente(self.zerind, 75),
-            Adjascente(self.sibiu, 140),
-            Adjascente(self.timisoara, 118),
+        self.arad.vizinhos = [
+            Vizinho(self.zerind, 75),
+            Vizinho(self.sibiu, 140),
+            Vizinho(self.timisoara, 118),
         ]
-        self.bucharest.adjascentes = [
-            Adjascente(self.giurgiu, 90),
-            Adjascente(self.urziceni, 85),
-            Adjascente(self.fagaras, 211),
-            Adjascente(self.pitesti, 101),
+        self.bucharest.vizinhos = [
+            Vizinho(self.giurgiu, 90),
+            Vizinho(self.urziceni, 85),
+            Vizinho(self.fagaras, 211),
+            Vizinho(self.pitesti, 101),
         ]
-        self.craiova.adjascentes = [
-            Adjascente(self.pitesti, 138),
-            Adjascente(self.rimnicu_vilcea, 146),
-            Adjascente(self.dobreta, 120),
+        self.craiova.vizinhos = [
+            Vizinho(self.pitesti, 138),
+            Vizinho(self.rimnicu_vilcea, 146),
+            Vizinho(self.dobreta, 120),
         ]
-        self.dobreta.adjascentes = [
-            Adjascente(self.craiova, 120),
-            Adjascente(self.mehadia, 75),
+        self.dobreta.vizinhos = [
+            Vizinho(self.craiova, 120),
+            Vizinho(self.mehadia, 75),
         ]
-        self.eforie.adjascentes = [Adjascente(self.hirsova, 86)]
-        self.fagaras.adjascentes = [
-            Adjascente(self.sibiu, 99),
-            Adjascente(self.bucharest, 211),
+        self.eforie.vizinhos = [Vizinho(self.hirsova, 86)]
+        self.fagaras.vizinhos = [
+            Vizinho(self.sibiu, 99),
+            Vizinho(self.bucharest, 211),
         ]
-        self.giurgiu.adjascentes = [Adjascente(self.bucharest, 90)]
-        self.hirsova.adjascentes = [
-            Adjascente(self.eforie, 86),
-            Adjascente(self.urziceni, 98),
+        self.giurgiu.vizinhos = [Vizinho(self.bucharest, 90)]
+        self.hirsova.vizinhos = [
+            Vizinho(self.eforie, 86),
+            Vizinho(self.urziceni, 98),
         ]
-        self.iasi.adjascentes = [
-            Adjascente(self.neamt, 87),
-            Adjascente(self.vaslui, 92),
+        self.iasi.vizinhos = [
+            Vizinho(self.neamt, 87),
+            Vizinho(self.vaslui, 92),
         ]
-        self.lugoj.adjascentes = [
-            Adjascente(self.mehadia, 70),
-            Adjascente(self.timisoara, 111),
+        self.lugoj.vizinhos = [
+            Vizinho(self.mehadia, 70),
+            Vizinho(self.timisoara, 111),
         ]
-        self.mehadia.adjascentes = [
-            Adjascente(self.lugoj, 70),
-            Adjascente(self.dobreta, 75),
+        self.mehadia.vizinhos = [
+            Vizinho(self.lugoj, 70),
+            Vizinho(self.dobreta, 75),
         ]
-        self.neamt.adjascentes = [Adjascente(self.iasi, 87)]
-        self.oradea.adjascentes = [
-            Adjascente(self.zerind, 71),
-            Adjascente(self.sibiu, 151),
+        self.neamt.vizinhos = [Vizinho(self.iasi, 87)]
+        self.oradea.vizinhos = [
+            Vizinho(self.zerind, 71),
+            Vizinho(self.sibiu, 151),
         ]
-        self.pitesti.adjascentes = [
-            Adjascente(self.rimnicu_vilcea, 97),
-            Adjascente(self.craiova, 138),
-            Adjascente(self.bucharest, 101),
+        self.pitesti.vizinhos = [
+            Vizinho(self.rimnicu_vilcea, 97),
+            Vizinho(self.craiova, 138),
+            Vizinho(self.bucharest, 101),
         ]
-        self.rimnicu_vilcea.adjascentes = [
-            Adjascente(self.pitesti, 97),
-            Adjascente(self.craiova, 146),
-            Adjascente(self.sibiu, 80),
+        self.rimnicu_vilcea.vizinhos = [
+            Vizinho(self.pitesti, 97),
+            Vizinho(self.craiova, 146),
+            Vizinho(self.sibiu, 80),
         ]
-        self.sibiu.adjascentes = [
-            Adjascente(self.fagaras, 99),
-            Adjascente(self.arad, 140),
-            Adjascente(self.oradea, 151),
-            Adjascente(self.rimnicu_vilcea, 80),
+        self.sibiu.vizinhos = [
+            Vizinho(self.fagaras, 99),
+            Vizinho(self.arad, 140),
+            Vizinho(self.oradea, 151),
+            Vizinho(self.rimnicu_vilcea, 80),
         ]
-        self.timisoara.adjascentes = [
-            Adjascente(self.lugoj, 111),
-            Adjascente(self.arad, 118),
+        self.timisoara.vizinhos = [
+            Vizinho(self.lugoj, 111),
+            Vizinho(self.arad, 118),
         ]
-        self.urziceni.adjascentes = [
-            Adjascente(self.hirsova, 98),
-            Adjascente(self.bucharest, 85),
+        self.urziceni.vizinhos = [
+            Vizinho(self.hirsova, 98),
+            Vizinho(self.bucharest, 85),
         ]
-        self.vaslui.adjascentes = [
-            Adjascente(self.iasi, 92),
-            Adjascente(self.urziceni, 142),
+        self.vaslui.vizinhos = [
+            Vizinho(self.iasi, 92),
+            Vizinho(self.urziceni, 142),
         ]
-        self.zerind.adjascentes = [
-            Adjascente(self.oradea, 71),
-            Adjascente(self.arad, 75),
+        self.zerind.vizinhos = [
+            Vizinho(self.oradea, 71),
+            Vizinho(self.arad, 75),
         ]
 
     def _cria_mapa(self):

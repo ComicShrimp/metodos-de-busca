@@ -25,3 +25,13 @@ def test_busca_gulosa(snapshot):
     )
 
     snapshot.assert_match(resultado.exporta(), "busca_gulosa")
+
+
+def test_busca_a_estrela(snapshot):
+    mapa = Mapa()
+
+    resultado = BuscaAEstrela().executa(
+        BuscaInputDto(partida=mapa.partida, chegada=mapa.chegada)
+    )
+
+    snapshot.assert_match(resultado.exporta(), "busca_a_estrela")
