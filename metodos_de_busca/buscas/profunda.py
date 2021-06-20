@@ -30,4 +30,4 @@ class BuscaProfunda(IBusca):
                         return ResultadoBusca(self.arvore_de_busca)
                     self.arvore_de_busca.pop()
 
-        return ResultadoBusca(caminho_impossivel=True)
+        return ResultadoBusca(caminho_nao_encontrado=True)

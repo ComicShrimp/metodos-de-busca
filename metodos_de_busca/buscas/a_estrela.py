@@ -10,4 +10,4 @@ class BuscaAEstrela(IBusca):  # A*
         self.pilha: List[Cidade] = []
 
     def executa(self, input_dto: BuscaInputDto) -> ResultadoBusca:
-        return ResultadoBusca(caminho_impossivel=True)
+        return ResultadoBusca(caminho_nao_encontrado=True)
