@@ -3,32 +3,32 @@ from metodos_de_busca.cidade import Cidade, Adjascente
 
 
 class Mapa:
-    # TODO: ler arquivo json para montar o mapa
-    arad = Cidade("Arad", 366)
-    bucharest = Cidade("Bucharest", 0)
-    craiova = Cidade("Craiova", 160)
-    dobreta = Cidade("Dobreta", 242)
-    eforie = Cidade("Eforie", 161)
-    fagaras = Cidade("Fagaras", 178)
-    giurgiu = Cidade("Giurgiu", 77)
-    hirsova = Cidade("Hirsova", 151)
-    iasi = Cidade("Iasi", 226)
-    lugoj = Cidade("Lugoj", 244)
-    mehadia = Cidade("Mehadia", 241)
-    neamt = Cidade("Neamt", 234)
-    oradea = Cidade("Oradea", 380)
-    pitesti = Cidade("pitesti", 98)
-    rimnicu_vilcea = Cidade("Rimnicu Vilcea", 193)
-    sibiu = Cidade("Sibiu", 253)
-    timisoara = Cidade("Timisoara", 329)
-    urziceni = Cidade("Urziceni", 80)
-    vaslui = Cidade("Vaslui", 199)
-    zerind = Cidade("Zerind", 374)
-
-    cidades: List[Cidade] = []
-    pilha: List[Cidade] = []
-
     def __init__(self) -> None:
+        # TODO: ler arquivo json para montar o mapa
+        self.arad = Cidade("Arad", 366)
+        self.bucharest = Cidade("Bucharest", 0)
+        self.craiova = Cidade("Craiova", 160)
+        self.dobreta = Cidade("Dobreta", 242)
+        self.eforie = Cidade("Eforie", 161)
+        self.fagaras = Cidade("Fagaras", 178)
+        self.giurgiu = Cidade("Giurgiu", 77)
+        self.hirsova = Cidade("Hirsova", 151)
+        self.iasi = Cidade("Iasi", 226)
+        self.lugoj = Cidade("Lugoj", 244)
+        self.mehadia = Cidade("Mehadia", 241)
+        self.neamt = Cidade("Neamt", 234)
+        self.oradea = Cidade("Oradea", 380)
+        self.pitesti = Cidade("pitesti", 98)
+        self.rimnicu_vilcea = Cidade("Rimnicu Vilcea", 193)
+        self.sibiu = Cidade("Sibiu", 253)
+        self.timisoara = Cidade("Timisoara", 329)
+        self.urziceni = Cidade("Urziceni", 80)
+        self.vaslui = Cidade("Vaslui", 199)
+        self.zerind = Cidade("Zerind", 374)
+
+        self.cidades: List[Cidade] = []
+        self.pilha: List[Cidade] = []
+
         self._cria_cidades_adjacentes()
         self._cria_mapa()
 
