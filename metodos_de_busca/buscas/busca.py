@@ -3,13 +3,22 @@ from dataclasses import dataclass
 
 from metodos_de_busca.sociedade import Cidade
 
-from .resultado import ResultadoBusca
+from dataclasses import dataclass
+from typing import List, Optional
+
+from metodos_de_busca.sociedade import Cidade
 
 
 @dataclass
 class BuscaInputDto:
     partida: Cidade
     chegada: Cidade
+
+
+@dataclass
+class ResultadoBusca:
+    arvore_de_cidades: Optional[List[Cidade]] = None
+    caminho_impossivel: bool = False
 
 
 class IBusca(ABC):

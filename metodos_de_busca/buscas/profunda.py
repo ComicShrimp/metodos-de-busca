@@ -2,8 +2,7 @@ from typing import List
 
 from metodos_de_busca.sociedade import Cidade
 
-from .busca import IBusca, BuscaInputDto
-from .resultado import ResultadoBusca
+from .busca import IBusca, BuscaInputDto, ResultadoBusca
 
 
 class BuscaProfunda(IBusca):
