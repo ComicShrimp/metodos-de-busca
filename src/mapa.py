@@ -3,6 +3,7 @@ from cidade import Cidade, Adjascente
 
 
 class Mapa:
+    # TODO: ler arquivo json para montar o mapa
     arad = Cidade("Arad", 366)
     bucharest = Cidade("Bucharest", 0)
     craiova = Cidade("Craiova", 160)
@@ -31,54 +32,13 @@ class Mapa:
         self._cria_cidades_adjacentes()
         self._cria_mapa()
 
-    def busca_profunda(self, partida: Cidade, chegada: Cidade):
-        partida.visitar()
+    @property
+    def partida(self):
+        return self.cidades[0]
 
-        self.pilha.append(partida)
-
-        if partida.nome == chegada.nome:
-            return self.pilha
-        else:
-            for adjascente in partida.adjascentes:
-                if not adjascente.cidade_destino.foi_visitado():
-                    print("Busca: " + adjascente.cidade_destino.nome)
-                    resultado = self.busca_profunda(adjascente.cidade_destino, chegada)
-                    if resultado:
-                        return self.pilha
-                    self.pilha.pop()
-        return False
-
-    def busca_largura(self, partida: Cidade, chegada: Cidade):
-        return [partida, chegada]
-
-    def busca_a_estrela(self, partida: Cidade, chegada: Cidade):
-        return [partida, chegada]
-
-    def busca_gulosa(self, partida: Cidade, chegada: Cidade):
-        partida.visitar()
-
-        self.pilha.append(partida)
-
-        if partida.nome == chegada.nome:
-            return self.pilha
-        else:
-            if partida.adjascentes[0].cidade_destino.foi_visitado():
-                cidade_a_visitar = partida.adjascentes[1]
-            else:
-                cidade_a_visitar = partida.adjascentes[0]
-
-            for adjascente in partida.adjascentes:
-                if not adjascente.cidade_destino.foi_visitado():
-                    custo = adjascente.custo_do_caminho
-                    custo_a_visitar = cidade_a_visitar.custo_do_caminho
-                    if custo < custo_a_visitar:
-                        cidade_a_visitar = adjascente
-
-            print("Busca: " + cidade_a_visitar.cidade_destino.nome)
-            return self.busca_gulosa(cidade_a_visitar.cidade_destino, chegada)
-
-    def busca_custo_uniforme(self, partida: Cidade, chegada: Cidade):
-        return [partida, chegada]
+    @property
+    def chegada(self):
+        return self.cidades[1]
 
     def get_mapa(self):
         return self.cidades
