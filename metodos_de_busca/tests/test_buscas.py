@@ -14,7 +14,7 @@ def test_busca_profunda(snapshot):
         BuscaInputDto(partida=mapa.partida, chegada=mapa.chegada)
     )
 
-    snapshot.assert_match(resultado.arvore_de_cidades, "busca_profunda")
+    snapshot.assert_match(resultado.exporta(), "busca_profunda")
 
 
 def test_busca_gulosa(snapshot):
@@ -24,4 +24,4 @@ def test_busca_gulosa(snapshot):
         BuscaInputDto(partida=mapa.partida, chegada=mapa.chegada)
     )
 
-    snapshot.assert_match(resultado.arvore_de_cidades, "busca_gulosa")
+    snapshot.assert_match(resultado.exporta(), "busca_gulosa")

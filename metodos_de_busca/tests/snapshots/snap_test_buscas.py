@@ -8,20 +8,20 @@ from snapshottest import GenericRepr, Snapshot
 snapshots = Snapshot()
 
 snapshots['test_busca_gulosa busca_gulosa'] = [
-    GenericRepr('Arad'),
-    GenericRepr('Zerind'),
-    GenericRepr('Oradea'),
-    GenericRepr('Sibiu'),
-    GenericRepr('Rimnicu Vilcea'),
-    GenericRepr('pitesti'),
-    GenericRepr('Bucharest')
+    'Cidade: Arad, Custo: 366',
+    'Cidade: Zerind, Custo: 374',
+    'Cidade: Oradea, Custo: 380',
+    'Cidade: Sibiu, Custo: 253',
+    'Cidade: Rimnicu Vilcea, Custo: 193',
+    'Cidade: pitesti, Custo: 98',
+    'Cidade: Bucharest, Custo: 0'
 ]
 
 snapshots['test_busca_profunda busca_profunda'] = [
-    GenericRepr('Arad'),
-    GenericRepr('Zerind'),
-    GenericRepr('Oradea'),
-    GenericRepr('Sibiu'),
-    GenericRepr('Fagaras'),
-    GenericRepr('Bucharest')
+    'Cidade: Arad, Custo: 366',
+    'Cidade: Zerind, Custo: 374',
+    'Cidade: Oradea, Custo: 380',
+    'Cidade: Sibiu, Custo: 253',
+    'Cidade: Fagaras, Custo: 178',
+    'Cidade: Bucharest, Custo: 0'
 ]
