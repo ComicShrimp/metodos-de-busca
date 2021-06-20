@@ -10,7 +10,7 @@ class BuscaProfunda(IBusca):
     def __init__(self):
         self.arvore_de_busca: List[Cidade] = []
 
-    def executa(self, input_dto: BuscaInputDto) -> Union[ResultadoBusca, bool]:
+    def executa(self, input_dto: BuscaInputDto) -> ResultadoBusca:
         input_dto.partida.visitar()
 
         self.arvore_de_busca.append(input_dto.partida)
@@ -30,4 +30,5 @@ class BuscaProfunda(IBusca):
                     if resultado:
                         return ResultadoBusca(self.arvore_de_busca)
                     self.arvore_de_busca.pop()
-        return False
+
+        return ResultadoBusca(caminho_impossivel=True)

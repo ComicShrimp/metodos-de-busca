@@ -10,6 +10,6 @@ class BucasEmLargura(IBusca):
     def __init__(self):
         self.pilha: List[Cidade] = []
 
-    def executa(self, input_dto: BuscaInputDto) -> Union[ResultadoBusca, bool]:
+    def executa(self, input_dto: BuscaInputDto) -> ResultadoBusca:
         # TODO: implementar
         pass

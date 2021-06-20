@@ -6,10 +6,10 @@ from .busca import IBusca, BuscaInputDto
 from .resultado import ResultadoBusca
 
 
-class BucasAEstrela(IBusca):  # A*
+class BuscaAEstrela(IBusca):  # A*
     def __init__(self):
         self.pilha: List[Cidade] = []
 
-    def executa(self, input_dto: BuscaInputDto) -> Union[ResultadoBusca, bool]:
+    def executa(self, input_dto: BuscaInputDto) -> ResultadoBusca:
         # TODO: implementar
         pass

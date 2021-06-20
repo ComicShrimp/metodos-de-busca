@@ -15,5 +15,5 @@ class BuscaInputDto:
 
 class IBusca(ABC):
     @abstractmethod
-    def executa(self, input_dto: BuscaInputDto) -> Union[ResultadoBusca, bool]:
+    def executa(self, input_dto: BuscaInputDto) -> ResultadoBusca:
         pass
