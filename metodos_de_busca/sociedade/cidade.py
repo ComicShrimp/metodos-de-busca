@@ -5,12 +5,10 @@ class Cidade:
     def __init__(
         self,
         nome: str,
-        custo: int,
         vizinhos: List = [],
         visitado: bool = False,
     ) -> None:
         self.nome = nome
-        self.custo = custo
         self.vizinhos = vizinhos
         self.visitado = visitado
 
