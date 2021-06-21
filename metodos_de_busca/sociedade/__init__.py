@@ -1,4 +1,5 @@
-from .cidade import Cidade
+from .cidade import Cidade, Vizinho
 from .mapa import Mapa
 
-__all__ = ["Cidade", "Mapa"]
+
+__all__ = ["Cidade", "Mapa", "Vizinho"]

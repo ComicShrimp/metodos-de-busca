@@ -1,7 +1,7 @@
 from .a_estrela import BuscaAEstrela
 from .busca import BuscaInputDto, ResultadoBusca
 from .gulosa import BuscaGulosa
-from .largura import BucasEmLargura
+from .largura import BuscaEmLargura
 from .profunda import BuscaProfunda
 
 __all__ = [
@@ -10,5 +10,5 @@ __all__ = [
     "ResultadoBusca",
     "BuscaInputDto",
     "BuscaAEstrela",
-    "BucasEmLargura",
+    "BuscaEmLargura",
 ]

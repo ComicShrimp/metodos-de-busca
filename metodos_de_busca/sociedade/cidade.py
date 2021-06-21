@@ -37,3 +37,7 @@ class Vizinho:
     def __init__(self, cidade_destino: Cidade, custo_do_caminho: int):
         self.cidade_destino = cidade_destino
         self.custo_do_caminho = custo_do_caminho
+
+    @property
+    def destino(self):
+        return self.cidade_destino
