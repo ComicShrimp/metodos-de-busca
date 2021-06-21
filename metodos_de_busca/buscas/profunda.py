@@ -19,7 +19,6 @@ class BuscaProfunda(IBusca):
         else:
             for vizinho in input_dto.partida.vizinhos:
                 if not vizinho.cidade_destino.foi_visitado():
-                    print("Busca: " + vizinho.cidade_destino.nome)
                     resultado = self.executa(
                         BuscaInputDto(
                             partida=vizinho.cidade_destino,

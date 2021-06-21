@@ -1,3 +1,4 @@
 from .tempo import Tempo
+from .resultado import Resultado
 
-__all__ = ["Tempo"]
+__all__ = ["Tempo", "Resultado"]

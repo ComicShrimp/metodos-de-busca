@@ -12,10 +12,20 @@ class Tempo:
     def termina_contagem(self):
         self.final = time.time()
 
-    def tempo_total(self) -> str:
+    def mostra_tempo(self, titulo: str = None):
         diferenca = (self.final - self.inicial) * 1000 * 1000
         (millisegundos, microsegundos) = divmod(diferenca, 1000)
         (segundos, millisegundos) = divmod(millisegundos, 1000)
-        return "Tempo total: {} segundos | {} millisegundos | {} microsegundos".format(
-            segundos, millisegundos, microsegundos
-        )
+
+        if titulo is None:
+            return (
+                "Tempo total: {} segundos | {} millisegundos | {} microsegundos".format(
+                    segundos, millisegundos, microsegundos
+                )
+            )
+        else:
+            print(
+                "\n{} - Tempo total: {} segundos | {} millisegundos | {} microsegundos\n".format(
+                    titulo, segundos, millisegundos, microsegundos
+                )
+            )
