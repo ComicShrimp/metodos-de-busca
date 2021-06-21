@@ -1,4 +1,6 @@
 from typing import List
+from metodos_de_busca.buscas.busca import DistanciaEmLinhaRetaParaDestino
+
 from metodos_de_busca.sociedade.cidade import Cidade, Vizinho
 
 
@@ -42,6 +44,31 @@ class Mapa:
 
     def get_mapa(self):
         return self.cidades
+
+    def get_heuristica(self):
+        return [
+            DistanciaEmLinhaRetaParaDestino(cidade=self.arad, distancia=366),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.bucharest, distancia=0),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.craiova, distancia=160),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.dobreta, distancia=242),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.eforie, distancia=161),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.fagaras, distancia=178),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.bucharest, distancia=0),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.giurgiu, distancia=77),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.hirsova, distancia=151),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.iasi, distancia=226),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.lugoj, distancia=244),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.mehadia, distancia=241),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.neamt, distancia=234),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.oradea, distancia=380),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.pitesti, distancia=98),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.rimnicu_vilcea, distancia=193),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.sibiu, distancia=253),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.timisoara, distancia=329),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.urziceni, distancia=80),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.vaslui, distancia=199),
+            DistanciaEmLinhaRetaParaDestino(cidade=self.zerind, distancia=374),
+        ]
 
     def _limpa_busca(self):
         for cidade in self.cidades:

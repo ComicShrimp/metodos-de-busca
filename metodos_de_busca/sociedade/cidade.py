@@ -41,3 +41,7 @@ class Vizinho:
     @property
     def destino(self):
         return self.cidade_destino
+
+    @property
+    def custo(self):
+        return self.custo_do_caminho

@@ -42,7 +42,9 @@ def test_busca_a_estrela(snapshot):
     mapa = Mapa()
 
     resultado = BuscaAEstrela().executa(
-        BuscaInputDto(partida=mapa.partida, chegada=mapa.chegada)
+        BuscaInputDto(
+            partida=mapa.partida, chegada=mapa.chegada, heuristica=mapa.get_heuristica()
+        )
     )
 
     snapshot.assert_match(resultado.exporta(), "busca_a_estrela")
