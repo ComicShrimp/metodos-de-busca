@@ -23,6 +23,9 @@ class Cidade:
     def reiniciar_visitado(self):
         self.visitado = False
 
+    def eh_igual(self, cidade):
+        return cidade.nome == self.nome
+
     def __str__(self) -> str:
         return self.nome
 

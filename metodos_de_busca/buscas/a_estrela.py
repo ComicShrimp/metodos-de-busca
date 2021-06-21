@@ -7,7 +7,7 @@ from .busca import IBusca, BuscaInputDto, ResultadoBusca
 
 class BuscaAEstrela(IBusca):  # A*
     def __init__(self):
-        self.pilha: List[Cidade] = []
+        self.arvore_de_cidades: List[Cidade] = []
 
     def executa(self, input_dto: BuscaInputDto) -> ResultadoBusca:
-        return ResultadoBusca(caminho_nao_encontrado=True)
+        raise Exception("Não implementado")
