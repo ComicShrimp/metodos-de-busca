@@ -31,11 +31,14 @@ class BuscaDeCustoUniforme(IBusca):  # A*
 
         if self.folhas_terminaram():
             folha_menor_custo = self.achar_folha_menor_custo()
-            return ResultadoBusca(arvore_de_cidades=folha_menor_custo.pilha)
+            return ResultadoBusca(
+                arvore_de_cidades=self.arvore_de_busca, caminho=folha_menor_custo.pilha
+            )
 
         folha_menor_custo = self.achar_folha_menor_custo()
         self.folhas.remove(folha_menor_custo)
         folha_menor_custo.pilha[-1].visitar()
+        self.arvore_de_busca.append(folha_menor_custo.pilha[-1])
 
         for cidade in folha_menor_custo.pilha[-1].vizinhos:
             if not cidade.cidade_destino.foi_visitado():
@@ -53,7 +56,7 @@ class BuscaDeCustoUniforme(IBusca):  # A*
                     )
                 )
 
-        return ResultadoBusca(caminho_nao_encontrado=True)
+        return self.executa(input_dto=input_dto)
 
     def achar_folha_menor_custo(self) -> Folha:
         menor_custo = self.folhas[0]
