@@ -26,6 +26,7 @@ class BuscaInputDto:
 class ResultadoBusca:
     arvore_de_cidades: Optional[List[Cidade]] = None
     caminho_nao_encontrado: bool = False
+    caminho: Optional[List[Cidade]] = None
 
     def exporta(self):
         resultado = []
