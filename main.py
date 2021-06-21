@@ -1,5 +1,5 @@
 from metodos_de_busca.buscas import BuscaGulosa, BuscaProfunda, BuscaInputDto
-from metodos_de_busca.mapa import Mapa
+from metodos_de_busca.sociedade.mapa import Mapa
 
 mapa = Mapa()
 print("Partida: " + mapa.partida.nome)
