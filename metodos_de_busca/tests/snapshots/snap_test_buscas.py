@@ -7,6 +7,14 @@ from snapshottest import Snapshot
 
 snapshots = Snapshot()
 
+snapshots['test_busca_a_estrela busca_a_estrela'] = [
+    'Cidade: Arad, heuristica: 366',
+    'Cidade: Sibiu, heuristica: 253',
+    'Cidade: Rimnicu Vilcea, heuristica: 193',
+    'Cidade: pitesti, heuristica: 98',
+    'Cidade: Bucharest, heuristica: 0'
+]
+
 snapshots['test_busca_em_largura busca_em_largura'] = [
     'Cidade: Arad, heuristica: 366',
     'Cidade: Zerind, heuristica: 374',

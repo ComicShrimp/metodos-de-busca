@@ -11,27 +11,35 @@ from .busca import (
 
 class BuscaAEstrela(IBusca):  # A*
     def __init__(self):
-        self.arvore_de_cidades: List[Cidade] = []
+        self.arvore_de_busca: List[Cidade] = []
 
     def executa(self, input_dto: BuscaInputDto) -> ResultadoBusca:
-        pass
-        # cidade_atual = input_dto.partida
+        input_dto.partida.visitar()
 
-        # while cidade_atual is not None:
-        #     if cidade_atual.eh_igual(input_dto.chegada):
-        #         return ResultadoBusca(arvore_de_cidades=self.arvore_de_cidades)
+        self.arvore_de_busca.append(input_dto.partida)
 
-        #     for vizinho in cidade_atual.vizinhos:
-        #         if vizinho.destino.eh_igual(input_dto.chegada):
-        #             return ResultadoBusca(arvore_de_cidades=self.arvore_de_cidades)
+        if input_dto.partida.nome == input_dto.chegada.nome:
+            return ResultadoBusca(self.arvore_de_busca)
+        else:
+            if input_dto.partida.vizinhos[0].cidade_destino.foi_visitado():
+                cidade_a_visitar = input_dto.partida.vizinhos[1]
+            else:
+                cidade_a_visitar = input_dto.partida.vizinhos[0]
 
-        #         if input_dto.heuristica is not None:
-        #             heuristica = acha_distancia_heuristica(
-        #                 vizinho.destino, input_dto.heuristica
-        #             )
-        #             if heuristica is not None:
-        #                 g_e_f = heuristica.distancia + vizinho.custo
+            for vizinho in input_dto.partida.vizinhos:
+                if not vizinho.cidade_destino.foi_visitado():
+                    custo = vizinho.cidade_destino.heuristica + vizinho.custo_do_caminho
+                    custo_a_visitar = (
+                        cidade_a_visitar.cidade_destino.heuristica
+                        + cidade_a_visitar.custo_do_caminho
+                    )
+                    if custo < custo_a_visitar:
+                        cidade_a_visitar = vizinho
 
-        #     cidade_atual = None
-        # raise Exception("parei aqui")
-        # return ResultadoBusca(caminho_nao_encontrado=True)
+            print("Busca: " + cidade_a_visitar.cidade_destino.nome)
+            return self.executa(
+                BuscaInputDto(
+                    partida=cidade_a_visitar.cidade_destino,
+                    chegada=input_dto.chegada,
+                )
+            )
