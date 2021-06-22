@@ -1,3 +1,4 @@
+from metodos_de_busca.sociedade.cidade import Vizinho
 from typing import List
 
 from metodos_de_busca.sociedade import Cidade
@@ -7,13 +8,11 @@ from .busca import IBusca, BuscaInputDto, ResultadoBusca
 
 class BuscaProfunda(IBusca):
     def __init__(self):
-        self.arvore_de_busca: List[Cidade] = []
-        self.caminho: List[Cidade] = []
+        self.arvore_de_busca: List[Vizinho] = []
+        self.caminho: List[Vizinho] = []
 
     def executa(self, input_dto: BuscaInputDto) -> ResultadoBusca:
         input_dto.partida.visitar()
-
-        self.caminho.append(input_dto.partida)
 
         if input_dto.partida.nome == input_dto.chegada.nome:
             return ResultadoBusca(
@@ -23,6 +22,7 @@ class BuscaProfunda(IBusca):
             for vizinho in input_dto.partida.vizinhos:
                 if not vizinho.cidade_destino.foi_visitado():
                     self.arvore_de_busca.append(vizinho)
+                    self.caminho.append(vizinho)
 
                     resultado = self.executa(
                         BuscaInputDto(

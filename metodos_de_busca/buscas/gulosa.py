@@ -1,3 +1,4 @@
+from metodos_de_busca.sociedade.cidade import Vizinho
 from typing import List
 
 from metodos_de_busca.sociedade import Cidade
@@ -7,8 +8,8 @@ from .busca import IBusca, BuscaInputDto, ResultadoBusca
 
 class BuscaGulosa(IBusca):
     def __init__(self):
-        self.arvore_de_busca: List[Cidade] = []
-        self.caminho: List[Cidade] = []
+        self.arvore_de_busca: List[Vizinho] = []
+        self.caminho: List[Vizinho] = []
 
     def executa(self, input_dto: BuscaInputDto) -> ResultadoBusca:
         input_dto.partida.visitar()

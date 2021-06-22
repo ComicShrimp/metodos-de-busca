@@ -28,14 +28,14 @@ def test_busca_gulosa(snapshot):
     snapshot.assert_match(resultado.exporta(), "busca_gulosa")
 
 
-def test_busca_em_largura(snapshot):
-    mapa = Mapa()
+# def test_busca_em_largura(snapshot):
+#     mapa = Mapa()
 
-    resultado = BuscaEmLargura().executa(
-        BuscaInputDto(partida=mapa.partida, chegada=mapa.chegada)
-    )
+#     resultado = BuscaEmLargura().executa(
+#         BuscaInputDto(partida=mapa.partida, chegada=mapa.chegada)
+#     )
 
-    snapshot.assert_match(resultado.exporta(), "busca_em_largura")
+#     snapshot.assert_match(resultado.exporta(), "busca_em_largura")
 
 
 def test_busca_a_estrela(snapshot):

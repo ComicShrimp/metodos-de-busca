@@ -1,5 +1,4 @@
 from metodos_de_busca.buscas.a_estrela import BuscaAEstrela
-from metodos_de_busca.buscas.custo_uniforme import BuscaDeCustoUniforme
 from metodos_de_busca.buscas import (
     BuscaGulosa,
     BuscaProfunda,
@@ -7,13 +6,12 @@ from metodos_de_busca.buscas import (
     BuscaEmLargura,
 )
 from metodos_de_busca.sociedade import Mapa
-from metodos_de_busca.metricas import Tempo
+from metodos_de_busca.metricas import Tempo, Resultado
 
 tempo = Tempo()
 mapa = Mapa()
 print("Partida: " + mapa.partida.nome)
 print("Chegada: " + mapa.chegada.nome)
-print("\n\n")
 
 tempo.inicia_contagem()
 resultado = BuscaProfunda().executa(
@@ -23,26 +21,22 @@ tempo.termina_contagem()
 
 tempo.mostra_tempo(titulo="Busca Profunda")
 
-for cidade in resultado.arvore_de_cidades:
-    print(cidade.nome)
-
+Resultado().mostra_resultado(resultado, titulo="Busca Profunda")
 
 mapa._limpa_busca()
 
 
-tempo.inicia_contagem()
-resultado = BuscaEmLargura().executa(
-    BuscaInputDto(partida=mapa.partida, chegada=mapa.chegada)
-)
-tempo.termina_contagem()
+# tempo.inicia_contagem()
+# resultado = BuscaEmLargura().executa(
+#     BuscaInputDto(partida=mapa.partida, chegada=mapa.chegada)
+# )
+# tempo.termina_contagem()
 
-tempo.mostra_tempo(titulo="Busca Largura")
+# tempo.mostra_tempo(titulo="Busca Largura")
 
-for cidade in resultado.arvore_de_cidades:
-    print(cidade.nome)
+# Resultado().mostra_resultado(resultado, titulo="Busca Largura")
 
-
-mapa._limpa_busca()
+# mapa._limpa_busca()
 
 
 tempo.inicia_contagem()
@@ -53,9 +47,7 @@ tempo.termina_contagem()
 
 tempo.mostra_tempo(titulo="Busca Gulosa")
 
-for cidade in resultado.arvore_de_cidades:
-    print(cidade.nome)
-
+Resultado().mostra_resultado(resultado, titulo="Busca Gulosa")
 
 mapa._limpa_busca()
 
@@ -67,8 +59,13 @@ tempo.termina_contagem()
 
 tempo.mostra_tempo(titulo="Busca A*")
 
-for cidade in resultado.arvore_de_cidades:
-    print(cidade.nome)
-
+Resultado().mostra_resultado(resultado, titulo="Busca A*")
 
 mapa._limpa_busca()
+
+print(
+    "\nObs: Os resultados são mostrados considerando o custo de heuristica e do caminho."
+)
+print(
+    "Entretanto, a heuristica nã o é considerada na busca profunda e na busca em largura"
+)
