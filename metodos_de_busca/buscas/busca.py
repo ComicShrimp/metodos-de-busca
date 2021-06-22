@@ -26,7 +26,9 @@ class ResultadoBusca:
 
         if self.arvore_de_cidades is not None:
             for cidade in self.arvore_de_cidades:
-                resultado.append(f"Cidade: {cidade.nome}, Custo: { cidade.custo}")
+                resultado.append(
+                    f"Cidade: {cidade.nome}, heuristica: { cidade.heuristica}"
+                )
 
         return resultado
 
