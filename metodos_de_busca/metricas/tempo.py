@@ -25,7 +25,7 @@ class Tempo:
             )
         else:
             print(
-                "\n{} - Tempo total: {} segundos | {} millisegundos | {} microsegundos\n".format(
+                "{} - Tempo total: {} segundos | {} millisegundos | {} microsegundos\n".format(
                     titulo, segundos, millisegundos, microsegundos
                 )
             )

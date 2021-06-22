@@ -13,6 +13,7 @@ mapa = Mapa()
 print("Partida: " + mapa.partida.nome)
 print("Chegada: " + mapa.chegada.nome)
 
+print("---------------------------------")
 tempo.inicia_contagem()
 resultado = BuscaProfunda().executa(
     BuscaInputDto(partida=mapa.partida, chegada=mapa.chegada)
@@ -25,18 +26,22 @@ Resultado().mostra_resultado(resultado, titulo="Busca Profunda")
 
 mapa._limpa_busca()
 
+print("---------------------------------")
 
-# tempo.inicia_contagem()
-# resultado = BuscaEmLargura().executa(
-#     BuscaInputDto(partida=mapa.partida, chegada=mapa.chegada)
-# )
-# tempo.termina_contagem()
 
-# tempo.mostra_tempo(titulo="Busca Largura")
+tempo.inicia_contagem()
+resultado = BuscaEmLargura().executa(
+    BuscaInputDto(partida=mapa.partida, chegada=mapa.chegada)
+)
+tempo.termina_contagem()
 
-# Resultado().mostra_resultado(resultado, titulo="Busca Largura")
+tempo.mostra_tempo(titulo="Busca Largura")
 
-# mapa._limpa_busca()
+Resultado().mostra_resultado(resultado, titulo="Busca Largura")
+
+mapa._limpa_busca()
+
+print("---------------------------------")
 
 
 tempo.inicia_contagem()
@@ -51,6 +56,8 @@ Resultado().mostra_resultado(resultado, titulo="Busca Gulosa")
 
 mapa._limpa_busca()
 
+print("---------------------------------")
+
 tempo.inicia_contagem()
 resultado = BuscaAEstrela().executa(
     BuscaInputDto(partida=mapa.partida, chegada=mapa.chegada)
@@ -63,9 +70,4 @@ Resultado().mostra_resultado(resultado, titulo="Busca A*")
 
 mapa._limpa_busca()
 
-print(
-    "\nObs: Os resultados são mostrados considerando o custo de heuristica e do caminho."
-)
-print(
-    "Entretanto, a heuristica nã o é considerada na busca profunda e na busca em largura"
-)
+print("\nObs: A heuristica não é considerada na busca profunda e na busca em largura.")

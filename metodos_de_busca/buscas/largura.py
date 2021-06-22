@@ -1,32 +1,44 @@
 from typing import List
+import copy
 
 from metodos_de_busca.sociedade import Cidade, Vizinho
 
 from .busca import IBusca, BuscaInputDto, ResultadoBusca
 
 
+class Folha:
+    def __init__(self, pilha: List[Vizinho] = []) -> None:
+        self.pilha = pilha
+
+
 class BuscaEmLargura(IBusca):
     def __init__(self):
-        self.arvore_de_cidades: List[Cidade] = []
-        self.caminho_final: List[Cidade] = []
+        self.arvore_de_busca: List[Vizinho] = []
+        self.folhas: List[Folha] = []
 
     def executa(self, input_dto: BuscaInputDto) -> ResultadoBusca:
-        fila: List[Cidade] = []
-        fila.append(input_dto.partida)
+        if self.folhas == []:
+            for vizinho in input_dto.partida.vizinhos:
+                self.folhas.append(Folha(pilha=[vizinho]))
 
-        while fila:
-            nova_fila: List[Cidade] = []
+        for folha in self.folhas:
+            self.arvore_de_busca.append(folha.pilha[-1])
+            folha.pilha[-1].cidade_destino.visitar()
 
-            for cidade in fila:
-                if not cidade.foi_visitado():
-                    cidade.visitar()
-                    self.arvore_de_cidades.append(cidade)
-                    if cidade.eh_igual(input_dto.chegada):
-                        return ResultadoBusca(arvore_de_cidades=self.arvore_de_cidades)
-                    else:
-                        for vizinho in cidade.vizinhos:
-                            nova_fila.append(vizinho.destino)
+            if folha.pilha[-1].cidade_destino.nome == input_dto.chegada.nome:
+                return ResultadoBusca(
+                    arvore_de_cidades=self.arvore_de_busca, caminho=folha.pilha
+                )
 
-            fila = nova_fila
+        folhas_auxiliar = []
 
-        return ResultadoBusca(caminho_nao_encontrado=True)
+        for folha in self.folhas:
+            self.folhas.remove(folha)
+
+            for filha in folha.pilha[-1].cidade_destino.vizinhos:
+                if not filha.cidade_destino.foi_visitado():
+                    folhas_auxiliar.append(Folha(pilha=folha.pilha + [filha]))
+
+        self.folhas = folhas_auxiliar
+
+        return self.executa(input_dto=input_dto)

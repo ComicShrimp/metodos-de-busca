@@ -6,7 +6,7 @@ class Resultado:
         pass
 
     def mostra_resultado(self, resultado: ResultadoBusca, titulo: str):
-        print("\nResultado para {}\n".format(titulo))
+        print("Resultado para {}\n".format(titulo))
 
         if not resultado.caminho_nao_encontrado:
             print("\nArvore de Busca\n")
@@ -30,20 +30,16 @@ class Resultado:
             if resultado.caminho is not None:
                 for cidade in resultado.caminho:
                     interator = interator + 1
-                    custo_total = (
-                        cidade.custo_do_caminho
-                        + cidade.cidade_destino.heuristica
-                        + custo_total
-                    )
+                    custo_total = cidade.custo_do_caminho + custo_total
                     print(
                         "{} - {}: custo={}".format(
                             interator,
                             cidade.cidade_destino.nome,
-                            cidade.custo_do_caminho + cidade.cidade_destino.heuristica,
+                            cidade.custo_do_caminho,
                         )
                     )
 
-                print("\nCusto Total: {}".format(custo_total))
+                print("\nCusto Total (Distância Percorrida): {}\n".format(custo_total))
 
         else:
             print("\nNenhum caminho encontrado\n")
