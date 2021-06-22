@@ -8,14 +8,15 @@ from .busca import IBusca, BuscaInputDto, ResultadoBusca
 class BuscaGulosa(IBusca):
     def __init__(self):
         self.arvore_de_busca: List[Cidade] = []
+        self.caminho: List[Cidade] = []
 
     def executa(self, input_dto: BuscaInputDto) -> ResultadoBusca:
         input_dto.partida.visitar()
 
-        self.arvore_de_busca.append(input_dto.partida)
-
         if input_dto.partida.nome == input_dto.chegada.nome:
-            return ResultadoBusca(self.arvore_de_busca)
+            return ResultadoBusca(
+                caminho=self.caminho, arvore_de_cidades=self.arvore_de_busca
+            )
         else:
             if input_dto.partida.vizinhos[0].cidade_destino.foi_visitado():
                 cidade_a_visitar = input_dto.partida.vizinhos[1]
@@ -29,7 +30,9 @@ class BuscaGulosa(IBusca):
                     if custo < custo_a_visitar:
                         cidade_a_visitar = vizinho
 
-            print("Busca: " + cidade_a_visitar.cidade_destino.nome)
+            self.arvore_de_busca.append(cidade_a_visitar)
+            self.caminho.append(cidade_a_visitar)
+
             return self.executa(
                 BuscaInputDto(
                     partida=cidade_a_visitar.cidade_destino,
