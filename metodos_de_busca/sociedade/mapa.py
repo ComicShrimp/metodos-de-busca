@@ -1,5 +1,4 @@
 from typing import List
-from metodos_de_busca.buscas.busca import DistanciaEmLinhaRetaParaDestino
 
 from metodos_de_busca.sociedade.cidade import Cidade, Vizinho
 
@@ -7,26 +6,26 @@ from metodos_de_busca.sociedade.cidade import Cidade, Vizinho
 class Mapa:
     def __init__(self) -> None:
         # TODO: ler arquivo json para montar o mapa
-        self.arad = Cidade("Arad")
-        self.bucharest = Cidade("Bucharest")
-        self.craiova = Cidade("Craiova")
-        self.dobreta = Cidade("Dobreta")
-        self.eforie = Cidade("Eforie")
-        self.fagaras = Cidade("Fagaras")
-        self.giurgiu = Cidade("Giurgiu")
-        self.hirsova = Cidade("Hirsova")
-        self.iasi = Cidade("Iasi")
-        self.lugoj = Cidade("Lugoj")
-        self.mehadia = Cidade("Mehadia")
-        self.neamt = Cidade("Neamt")
-        self.oradea = Cidade("Oradea")
-        self.pitesti = Cidade("pitesti")
-        self.rimnicu_vilcea = Cidade("Rimnicu Vilcea")
-        self.sibiu = Cidade("Sibiu")
-        self.timisoara = Cidade("Timisoara")
-        self.urziceni = Cidade("Urziceni")
-        self.vaslui = Cidade("Vaslui")
-        self.zerind = Cidade("Zerind")
+        self.arad = Cidade("Arad", 366)
+        self.bucharest = Cidade("Bucharest", 0)
+        self.craiova = Cidade("Craiova", 160)
+        self.dobreta = Cidade("Dobreta", 242)
+        self.eforie = Cidade("Eforie", 161)
+        self.fagaras = Cidade("Fagaras", 178)
+        self.giurgiu = Cidade("Giurgiu", 77)
+        self.hirsova = Cidade("Hirsova", 151)
+        self.iasi = Cidade("Iasi", 226)
+        self.lugoj = Cidade("Lugoj", 244)
+        self.mehadia = Cidade("Mehadia", 241)
+        self.neamt = Cidade("Neamt", 234)
+        self.oradea = Cidade("Oradea", 380)
+        self.pitesti = Cidade("pitesti", 98)
+        self.rimnicu_vilcea = Cidade("Rimnicu Vilcea", 193)
+        self.sibiu = Cidade("Sibiu", 253)
+        self.timisoara = Cidade("Timisoara", 329)
+        self.urziceni = Cidade("Urziceni", 80)
+        self.vaslui = Cidade("Vaslui", 199)
+        self.zerind = Cidade("Zerind", 374)
 
         self.cidades: List[Cidade] = []
         self.pilha: List[Cidade] = []
@@ -44,31 +43,6 @@ class Mapa:
 
     def get_mapa(self):
         return self.cidades
-
-    def get_heuristica(self):
-        return [
-            DistanciaEmLinhaRetaParaDestino(cidade=self.arad, distancia=366),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.bucharest, distancia=0),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.craiova, distancia=160),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.dobreta, distancia=242),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.eforie, distancia=161),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.fagaras, distancia=178),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.bucharest, distancia=0),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.giurgiu, distancia=77),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.hirsova, distancia=151),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.iasi, distancia=226),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.lugoj, distancia=244),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.mehadia, distancia=241),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.neamt, distancia=234),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.oradea, distancia=380),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.pitesti, distancia=98),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.rimnicu_vilcea, distancia=193),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.sibiu, distancia=253),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.timisoara, distancia=329),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.urziceni, distancia=80),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.vaslui, distancia=199),
-            DistanciaEmLinhaRetaParaDestino(cidade=self.zerind, distancia=374),
-        ]
 
     def _limpa_busca(self):
         for cidade in self.cidades:

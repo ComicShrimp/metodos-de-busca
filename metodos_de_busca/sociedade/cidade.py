@@ -5,10 +5,12 @@ class Cidade:
     def __init__(
         self,
         nome: str,
+        heuristica: int,
         vizinhos: List = [],
         visitado: bool = False,
     ) -> None:
         self.nome = nome
+        self.heuristica = heuristica
         self.vizinhos = vizinhos
         self.visitado = visitado
 

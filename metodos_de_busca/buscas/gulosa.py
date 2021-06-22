@@ -24,8 +24,8 @@ class BuscaGulosa(IBusca):
 
             for vizinho in input_dto.partida.vizinhos:
                 if not vizinho.cidade_destino.foi_visitado():
-                    custo = vizinho.custo_do_caminho
-                    custo_a_visitar = cidade_a_visitar.custo_do_caminho
+                    custo = vizinho.cidade_destino.heuristica
+                    custo_a_visitar = cidade_a_visitar.cidade_destino.heuristica
                     if custo < custo_a_visitar:
                         cidade_a_visitar = vizinho
 

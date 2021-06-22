@@ -17,19 +17,19 @@ tempo.termina_contagem()
 
 tempo.mostra_tempo(titulo="Busca Profunda")
 
-# for cidade in resultado.arvore_de_cidades:
-#     print(cidade.nome)
+for cidade in resultado.arvore_de_cidades:
+    print(cidade.nome)
 
 
-# mapa._limpa_busca()
+mapa._limpa_busca()
 
 
-# print("\n\nBusca Gulosa\nCaminho encontrado: ")
-# resultado = BuscaGulosa().executa(
-#     BuscaInputDto(partida=mapa.partida, chegada=mapa.chegada)
-# )
+print("\n\nBusca Gulosa\nCaminho encontrado: ")
+resultado = BuscaGulosa().executa(
+    BuscaInputDto(partida=mapa.partida, chegada=mapa.chegada)
+)
 
-# for cidade in resultado.arvore_de_cidades:
-#     print(cidade.nome)
+for cidade in resultado.arvore_de_cidades:
+    print(cidade.nome)
 
-# mapa._limpa_busca()
+mapa._limpa_busca()

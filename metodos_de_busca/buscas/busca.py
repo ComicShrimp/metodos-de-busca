@@ -10,16 +10,9 @@ from metodos_de_busca.sociedade import Cidade
 
 
 @dataclass
-class DistanciaEmLinhaRetaParaDestino:
-    cidade: Cidade
-    distancia: int
-
-
-@dataclass
 class BuscaInputDto:
     partida: Cidade
     chegada: Cidade
-    heuristica: Optional[List[DistanciaEmLinhaRetaParaDestino]] = None
 
 
 @dataclass
